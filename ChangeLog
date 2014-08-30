@@ -1,0 +1,24 @@
+ChangeLog of JHttpTunnel
+====================================================================
+Last modified: Mon May 16 17:15:05 UTC 200
+
+	
+Changes since version  0.0.3:		
+- added the support for J2ME/CLDC/DoJa platform.
+- added JHttpTunnelServer.
+  In current implementation, it is only for Doja profile.
+
+	
+Changes since version 0.0.2:		
+- This release can run on J2ME/CLDC/MIDP platform.
+- added a patch(misc/httptunnel-3.0.5-0.0.3.patch) for using
+  InBoundConnection/OutBoundConnection class.
+- JHttpTunnelClient's 'setInBound' and 'setOutBound' methods must be
+  invoked explicitly before 'connect' method.
+	
+	
+Changes since version 0.0.1:		
+- This release can use java.net.URLConnection instead of java.net.Socket
+  for inbound/outbound streams.	  
+- added a patch(misc/httptunnel-3.0.5-0.0.2.patch) for using
+  InBoundURL/OutBoundURL class.

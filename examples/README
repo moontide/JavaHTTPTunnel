@@ -1,0 +1,32 @@
+
+README of example directory
+====================================================================
+Last modified: Mon Apr  5 16:38:49 UTC 2004
+
+This directory contains some examples, which demonstrate how to use JHttpTunnel
+
+- JHTC.java
+  This program works like 'htc' of GNU httptunnel. 
+  $ CLASSPATH=.:../src javac JHTC.java
+
+  If you have HTTP proxy at 192.168.0.2:3128 and run 'hts' of GNU httptunnel at
+  192.168.0.1:8888 and want to forward the TCP port '2323', you can do
+  $ CLASSPATH=.:../src java -DP=192.168.0.2:3128 \
+                            -DF=2323 \
+                            JHTC 192.168.0.1:8888
+
+- JSchOverJHttpTunnel.java
+  This program demonstrates SSH Over httptunnel in pure Java by using
+  JHttpTunnel and JSch(http://www.jcraft.com/jsch/).  To try this program,
+  you needs jsch-0.1.14.jar file.
+  $ CLASSPATH=jsch-0.1.14.jar:.:../src javac JSchOverHttpTunnel.java
+
+  If you have run 'hts' of GNU httptunnel at the remote host 192.168.0.1 as 
+  follows,
+  $ hts -F 127.0.0.1:22 8888
+  You can do 
+  $ CLASSPATH=jsch-0.1.14.jar:.:../src \
+      java JSchOverHttpTunnel username@192.168.0.1:8888
+
+  If everything works fine, you will get the shell prompt.
+

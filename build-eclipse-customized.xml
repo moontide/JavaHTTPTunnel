@@ -1,0 +1,25 @@
+<?eclipse.ant.import?>
+<project>
+	<target name="读取配置文件">
+		<property file="project.properties"/>
+	</target>
+	<target name='jar' depends='init,读取配置文件' description='只打包，不编译（由开发工具编译）'>
+		<jar basedir='${bin.dir}' includes='**/*.class' compress='${jar.compress}' jarfile='${dist.jar}'/>
+		<copy file='${dist.jar}' todir='${ircbot.dir}/lib'/>
+		<copy file='${dist.jar}' todir='${pircbot.dir}/lib'/>
+	</target>
+
+	<target name='javadoc' depends='init,读取配置文件'>
+		<javadoc sourcepath='${src.dir}'
+			destdir='${dist.javadoc.dir}'
+			verbose='true'
+			charset='utf-8'
+			encoding='utf-8'
+			docencoding='utf-8'
+			Doctitle='JavaHTTPTunnel 让 Java Socket 也能通过 HTTP 代理访问'
+			windowtitle='JavaHTTPTunnel 让 Java Socket 也能通过 HTTP 代理访问'
+			author='true'
+			version='true'
+		/>
+	</target>
+</project>
